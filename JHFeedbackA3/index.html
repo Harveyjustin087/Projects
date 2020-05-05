@@ -1,0 +1,228 @@
+<!--
+PROG2430
+Assignment 3
+index.html
+March, 2020
+Created by: Justin Harvey
+email: jharvey7599@conestogac.on.ca
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scale=no">
+    <title>Home</title>
+    <!--jQuery-->
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <!--jQuery Mobile-->
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <!-- jQuery Mobile CSS-->
+    <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+    <!-- jQuery validator-->
+    <script src="js/lib/jquery.validate.js"></script>
+
+    <!-- our scripts and style pages-->
+    <script src="js/jhdatabase.js"></script>
+    <script src="js/jhfeedbackDAL.js"></script>
+    <script src="js/jhfacade.js"></script>
+    <script src="js/jhutil.js"></script>
+    <script src="js/jhglobal.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/jhmystyle.css">
+</head>
+<body>
+<!-- Home Page-->
+<div data-role="page" id="jhPageHome">
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>JH Feedback A3</h1>
+        <div data-role="navbar" data-type="horizontal">
+            <ul>
+                <li><a href="#jhPageHome" data-icon="home" data-theme="a" class="ui-btn-active, ui-state-persist" >Home</a></li>
+                <li><a href="#jhAddFeedbackPage"  data-icon="plus" data-theme="a" >Add</a></li>
+                <li><a href="#jhViewFeedbackPage" data-icon="grid" data-theme="a" >Review</a></li>
+                <li><a href="#jhSettingsPage" data-icon="gear" data-theme="a" >Settings</a></li>
+            </ul>
+        </div>
+    </header>
+    <section style="padding: 4%">
+        <h1>Justin Harvey's Feedback A3 App</h1>
+        <p>Welcome to the Justin Harvey's Feedback A3 app. A prototype designed for mobile
+            programming class. This is the first iteration of the app to keep track of
+            different places you visited along with your reviews.</p>
+        <div align="center">
+            <img src="img/JH-icon.png" style=" width: 65%; height: 65%;" alt="jhIcon">
+        </div>
+        <p>Please feel free to contact me if you have any suggestions!</p>
+        <a href="#" data-role="button" data-icon="plus">Call: (519) 277-6652</a>
+        <a href="mailto:jharvey7599@conestogac.on.ca" data-role="button" data-icon="plus">jharvey7599@conestogac.on.ca</a>
+        <p>Website:</p>
+        <a href="#" data-role="button" data-icon="plus">Conestoga College</a>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b">
+        <h1>&copy; 2020 Justin Harvey</h1>
+    </footer>
+</div>
+<!-- Feedback Page-->
+<div data-role="page" id="jhAddFeedbackPage">
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>Add a Feedback</h1>
+        <div data-role="navbar" data-type="horizontal">
+            <ul>
+                <li><a href="#jhPageHome" data-icon="home" data-theme="a" >Home</a></li>
+                <li><a href="#jhAddFeedbackPage" data-icon="plus" data-theme="a" class="ui-btn-active, ui-state-persist" >Add</a></li>
+                <li><a href="#jhViewFeedbackPage" data-icon="grid" data-theme="a" >Review</a></li>
+                <li><a href="#jhSettingsPage" data-icon="gear" data-theme="a" >Settings</a></li>
+            </ul>
+        </div>
+    </header>
+    <section style="padding: 15px" data-role="content">
+        <form id="jhAddForm">
+            <label for="jhBusiness">Business Name:</label>
+            <input type="text" name="jhBusiness" id="jhBusiness">
+            <label for="cmbType">Type</label>
+            <select name="cmbType" id="cmbType" data-native-menu="false" data-icon="arrow-d">
+<!--                <option value="Other" selected="selected">Other</option>-->
+<!--                <option value="Asian">Asian</option>-->
+<!--                <option value="Canadian">Canadian</option>-->
+            </select>
+            <label for="jhEmail">Reviewer Email:</label>
+            <input type="text" name="jhEmail" id="jhEmail">
+            <label for="jhComments">Reviewer Comments:</label>
+            <textarea name="jhComments" id="jhComments"></textarea>
+            <label for="jhRatingDate">Rating Date:</label>
+            <input type="date" name="jhRatingDate" id="jhRatingDate">
+            <input type="checkbox" id="jhAddRating" name="jhAddRating">
+            <label for="jhAddRating">Do you want to add your ratings?</label>
+            <div id="hideThis">
+                <label for="jhFood">Food Quality (0-5):</label>
+                <input type="number" name="jhFood" id="jhFood" value="0">
+                <label for="jhService">Service (0-5):</label>
+                <input type="number" name="jhService" id="jhService" value="0">
+                <label for="jhValue">Value (0-5):</label>
+                <input type="number" name="jhValue" id="jhValue" value="0">
+                <label for="jhRating">Overall Ratings (1-100):</label>
+                <input type="text" name="jhRating" id="jhRating" readonly>
+            </div>
+            <button data-role="button" class="ui-btn-active" data-inline="true" name="jhBtnSave" id="jhBtnSave">Save</button>
+        </form>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b">
+        <h1>&copy; 2020 Justin Harvey</h1>
+    </footer>
+</div>
+<!-- View Feedback Page-->
+<div data-role="page" id="jhViewFeedbackPage">
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>List of Reviews</h1>
+        <div data-role="navbar" data-type="horizontal">
+            <ul>
+                <li><a href="#jhPageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                <li><a href="#jhAddFeedbackPage" data-icon="plus" data-theme="a" >Add</a></li>
+                <li><a href="#jhViewFeedbackPage" data-icon="grid" data-theme="a" class="ui-btn-active, ui-state-persist">Review</a></li>
+                <li><a href="#jhSettingsPage" data-icon="gear" data-theme="a" >Settings</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <ul id="jhLVReview" data-role="listview" class="ui-listview-inset" data-split-icon="gear">
+            <li>
+                <a href="#jhEditFeedbackPage" data-role="button">
+                    <h1>Business Name: SharpShooter's Paintball</h1>
+                    <p>Reviewer: bWayne123@gmail.com</p>
+                    <p>Comments: Great Arenas!</p>
+                    <p>Overall Rating: 75%</p>
+                </a>
+            </li>
+            <li data-role="a">
+                <a href="#jhEditFeedbackPage" data-role="button">
+                    <h1>Business Name: BatCave Comics</h1>
+                    <p>Reviewer: tWayne456@hotmail.com</p>
+                    <p>Comments: Great Selection!</p>
+                    <p>Overall Rating: 90%</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b">
+        <h1>&copy; 2020 Justin Harvey</h1>
+    </footer>
+</div>
+<!-- Edit Feedback Page-->
+<div data-role="page" id="jhEditFeedbackPage">
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>Modify Feedback</h1>
+        <div data-role="navbar" data-type="horizontal">
+            <ul>
+                <li><a href="#jhPageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                <li><a href="#jhAddFeedbackPage" data-icon="plus" data-theme="a" >Add</a></li>
+                <li><a href="#jhViewFeedbackPage" data-icon="grid" data-theme="a" class="ui-btn-active, ui-state-persist">Review</a></li>
+                <li><a href="#jhSettingsPage" data-icon="gear" data-theme="a" >Settings</a></li>
+            </ul>
+        </div>
+    </header>
+    <section style="padding: 15px">
+        <form id="jhEditForm">
+            <label for="jhBusinessName">Business Name:</label>
+            <input type="text" name="jhBusinessName" id="jhBusinessName">
+            <label for="cmbReviewType">Type</label>
+            <select name="cmbReviewType" id="cmbReviewType" data-native-menu="false" data-icon="arrow-d">
+                <!--                <option value="Other" selected="selected">Other</option>-->
+                <!--                <option value="Asian">Asian</option>-->
+                <!--                <option value="Canadian">Canadian</option>-->
+            </select>
+            <label for="jhReviewerEmail">Reviewer Email:</label>
+            <input type="text" name="jhReviewerEmail" id="jhReviewerEmail">
+            <label for="jhReviewerComments">Reviewer Comments:</label>
+            <textarea name="jhReviewerComments" id="jhReviewerComments"></textarea>
+            <label for="jhReviewDate">Review Date:</label>
+            <input type="date" name="jhReviewDate" id="jhReviewDate">
+            <input type="checkbox" id="jhModifyRating" name="jhModifyRating">
+            <label for="jhModifyRating">Do you want to add your ratings?</label>
+            <div id="hideModify">
+                <label for="jhModifyFood">Food Service (0-5):</label>
+                <input type="number" name="jhModifyFood" id="jhModifyFood" value="0">
+                <label for="jhModifyService">Service (0-5):</label>
+                <input type="number" name="jhModifyService" id="jhModifyService" value="0">
+                <label for="jhModifyValue">Value (0-5):</label>
+                <input type="number" name="jhModifyValue" id="jhModifyValue" value="0">
+                <label for="jhModifyOverallRating">Overall Ratings (1-100):</label>
+                <input type="text" name="jhModifyRating" id="jhModifyOverallRating" readonly>
+            </div>
+            <div data-role="controlgroup" data-type="horizontal">
+                <button data-role="button" style="background-color: yellow" id="jhCancel" name="jhCancel">Cancel</button>
+                <button data-role="button" data-theme="b" name="jhDelete" id="jhDelete">Delete</button>
+                <button data-role="button" class="ui-btn-active" name="jhBtnUpdate" id="jhBtnUpdate">Update</button>
+            </div>
+        </form>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b">
+        <h1>&copy; 2020 Justin Harvey</h1>
+    </footer>
+</div>
+<!-- Settings Page-->
+<div data-role="page" id="jhSettingsPage">
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>Modify Feedback</h1>
+        <div data-role="navbar" data-type="horizontal">
+            <ul>
+                <li><a href="#jhPageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                <li><a href="#jhAddFeedbackPage" data-icon="plus" data-theme="a" >Add</a></li>
+                <li><a href="#jhViewFeedbackPage" data-icon="grid" data-theme="a" >Review</a></li>
+                <li><a href="#jhSettingsPage" data-icon="gear" data-theme="a" class="ui-btn-active, ui-state-persist" >Settings</a></li>
+            </ul>
+        </div>
+    </header>
+    <section style="padding: 15px">
+        <form id="jhSettingsForm" name="jhSettingsForm">
+            <label for="jhDefaultReviewer">Default reviewer Email:</label>
+            <input type="text" id="jhDefaultReviewer" name="jhDefaultReviewer">
+            <button data-role="button" class="ui-btn-active" id="jhSaveDefault" name="jhSaveDefault">Save Defaults</button>
+            <button data-role="button" data-theme="b" id="jhClearDb" name="jhClearDb">Clear Database</button>
+        </form>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b">
+        <h1>&copy; 2020 Justin Harvey</h1>
+    </footer>
+</div>
+</body>
+</html>

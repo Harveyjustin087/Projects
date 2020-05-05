@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="45a2a227-51aa-4992-8220-5aa53216e8a2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1aPrNY2vNcoLmXiFVmnQN4cmoIS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="js.phonegap.settings.workdir" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\harve\Desktop\FinalProjectCopy\AutoBidders" />
+      <recent name="G:\CONESTOGA2020\PROG2430(Mobile)\FinalProject\AutoBidders\plugins" />
+      <recent name="G:\CONESTOGA2020\PROG2430(Mobile)\FinalProject\AutoBidders\www\css" />
+      <recent name="G:\CONESTOGA2020\PROG2430(Mobile)\FinalProject\AutoBidders\www\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\CONESTOGA2020\PROG2430(Mobile)\FinalProject\AutoBidders\www\img" />
+      <recent name="G:\CONESTOGA2020\PROG2430(Mobile)\FinalProject\AutoBidders\www\css\lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PhoneGap/Cordova run" type="PhoneGap" factoryName="PhoneGap/Cordova">
+      <option name="myExecutable" value="C:\Users\harve\AppData\Roaming\npm\cordova.cmd" />
+      <option name="myWorkDir" value="$PROJECT_DIR$" />
+      <option name="myCommand" value="emulate" />
+      <option name="myPassParent" value="true" />
+      <option name="myPlatform" value="android" />
+      <option name="myExtraArgs" />
+      <option name="hasTarget" value="false" />
+      <option name="target" />
+      <method v="2">
+        <option name="PhonegapTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45a2a227-51aa-4992-8220-5aa53216e8a2" name="Default Changelist" comment="" />
+      <created>1586648030759</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586648030759</updated>
+      <workItem from="1586648039776" duration="11800000" />
+      <workItem from="1586716645068" duration="13133000" />
+      <workItem from="1586798611992" duration="6504000" />
+      <workItem from="1587261923523" duration="2234000" />
+      <workItem from="1587264239961" duration="302000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="696" y="305" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586654926944">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="696" y="305" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1586654926944" />
+    <state x="627" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586648934809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="627" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586648934809" />
+    <state x="690" y="201" key="FileChooserDialogImpl" timestamp="1586655195398">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="201" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586655195398" />
+    <state x="352" y="77" key="SettingsEditor" timestamp="1586656305432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="352" y="77" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586656305432" />
+  </component>
+</project>

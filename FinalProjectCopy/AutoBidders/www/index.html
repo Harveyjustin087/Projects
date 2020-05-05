@@ -1,0 +1,268 @@
+<!--
+Final Project
+index.html
+Created by: Justin Harvey & Morgan Walker
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Auto Bidders</title>
+        <!--jQuery Mobile-->
+        <script src="js/lib/jquery-2.1.4.js"></script>
+        <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+        <!--stylesheets-->
+        <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href="css/main.css">
+        <!-- jQuery validator-->
+        <script src="js/lib/jquery.validate.js"></script>
+        <!-- HERE maps-->
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+        <!--my scripts-->
+        <script src="js/global.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/Facade.js"></script>
+        <script src="js/database.js"></script>
+        <script src="js/AutoDAL.js"></script>
+        <script src="js/map.js"></script>
+        <!--Cordova js file-->
+        <script type="text/javascript" src="cordova.js"></script>
+    </head>
+    <body>
+        <!-- Home Page-->
+        <div id="pageHome" data-role="page">
+            <header data-role="header" data-theme="a" data-position="fixed">
+                <h1> Auto Bidders 2020 </h1>
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a" class="ui-btn-active,                                   ui-state-persist" >Home</a></li>
+                        <li><a href="#pageBrowse"  data-icon="bars" data-theme="a" >Browse</a></li>
+                        <li><a href="#pageAuction" data-icon="tag" data-theme="a" >Auctions</a></li>
+                        <li><a href="#pageSignUp" data-icon="navigation" data-theme="a" >Sign Up</a></li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" >About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content" data-theme="a">
+                <h1 align="center">Welcome to Auto Bidders</h1>
+                <p>Welcome to Auto Bidders where you can find a sweet new ride or put your current one up                   for sale! Here we can connect you to your next car or get you paid for your current                        one.</p>
+                <div align="center">
+                    <img src="img/carlogo.jpg" style=" width: 65%; height: 65%;" alt="jhIcon">
+                </div>
+                <a href="#" data-role="button" data-icon="plus">Auto Bidder's Official Site</a>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy; Justin Harvey & Morgan Walker </h1>
+            </footer>
+        </div>
+        <!-- Browse Auctions Page-->
+        <div id="pageBrowse" data-role="page">
+            <header data-role="header" data-theme="a" data-position="fixed">
+                <h1> Auto Bidders 2020 </h1>
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                        <li><a href="#pageBrowse"  data-icon="bars" data-theme="a" class="ui-btn-active,                                   ui-state-persist" >Browse</a></li>
+                        <li><a href="#pageAuction" data-icon="tag" data-theme="a" >Auctions</a></li>
+                        <li><a href="#pageSignUp" data-icon="navigation" data-theme="a" >Sign Up</a></li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" >About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content" data-theme="a">
+                <ul id="Browser" data-role="listview" class="ui-listview-inset" data-split-icon="gear">
+                </ul>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy; Justin Harvey & Morgan Walker </h1>
+            </footer>
+        </div>
+        <!-- Create An Auction Page-->
+        <div id="pageAuction" data-role="page">
+            <header data-role="header" data-theme="a" data-position="fixed">
+                <h1> Auto Bidders 2020 </h1>
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                        <li><a href="#pageBrowse"  data-icon="bars" data-theme="a" >Browse</a></li>
+                        <li><a href="#pageAuction" data-icon="tag" data-theme="a" class="ui-btn-active,                                   ui-state-persist">Auctions</a></li>
+                        <li><a href="#pageSignUp" data-icon="navigation" data-theme="a" >Sign Up</a></li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" >About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content" data-theme="a">
+                <h1>Put your vehicle up for Auction!</h1>
+                <h2>Enter the information below about your vehicle.</h2>
+                <form id="formAuction">
+                    <label for="txtModel">The Model of your Vehicle:</label>
+                    <input type="text" name="txtModel" id="txtModel">
+                    <label for="txtMake">Your Vehicle's Manufacturer:</label>
+                    <input type="text" name="txtMake" id="txtMake">
+                    <label for="txtYear">Your Vehicle's Year:</label>
+                    <input type="text" name="txtYear" id="txtYear">
+                    <label for="txtDamage">Damages:</label>
+                    <textarea name="txtDamage" id="txtDamage"
+                              placeholder="Put any information here about knicks or scratches your vehicle has or possible accidents so the next buyer can make an educated choice"></textarea>
+                    <label for="txtBid">Starting Bid(Please Use Whole Dollars):</label>
+                    <input type="number" name="txtBid" id="txtBid" placeholder="$5000.00">
+                    <h1>Contact Info:</h1>
+                    <label for="txtAucName">Full Name:</label>
+                    <input type="text" name="txtAucName" id="txtAucName">
+                    <label for="txtAucEmail">Email:</label>
+                    <input type="text" name="txtAucEmail" id="txtAucEmail">
+                    <label for="txtAucPhone">Phone Number:</label>
+                    <input type="text" name="txtAucPhone" id="txtAucPhone" placeholder="(###) ###-####">
+                    <label for="txtAucLocation">Location</label>
+                    <input type="text" name="txtAucLocation" id="txtAucLocation" placeholder="City, Province or State code">
+                    <button data-role="button" class="ui-btn-active" data-inline="true" name="btnSubmit" id="btnSubmit">Submit</button>
+                </form>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy; Justin Harvey & Morgan Walker </h1>
+            </footer>
+        </div>
+        <!-- Sign Up! Page-->
+        <div id="pageSignUp" data-role="page">
+            <header data-role="header" data-theme="a" data-position="fixed">
+                <h1> Auto Bidders 2020 </h1>
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                        <li><a href="#pageBrowse"  data-icon="bars" data-theme="a" >Browse</a></li>
+                        <li><a href="#pageAuction" data-icon="tag" data-theme="a" >Auctions</a></li>
+                        <li><a href="#pageSignUp" data-icon="navigation" data-theme="a" class="ui-btn-active,                                   ui-state-persist">Sign Up</a></li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" >About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content" data-theme="a">
+                <h1>Sign Up for the Auto Bidders Newsletter</h1>
+                <h2>Enter the your personal information below to get all the newest updates!</h2>
+                <form id="formSignUp">
+                    <label for="txtName">Full Name:</label>
+                    <input type="text" name="txtName" id="txtName">
+                    <label for="txtEmail">Email:</label>
+                    <input type="text" name="txtEmail" id="txtEmail">
+                    <label for="txtAge">Date of Birth:</label>
+                    <input type="date" name="txtAge" id="txtAge">
+                    <label for="txtPhone">Phone Number:</label>
+                    <input type="text" name="txtPhone" id="txtPhone" placeholder="(###) ###-####">
+                    <button data-role="button" class="ui-btn-active" data-inline="true" name="btnSignUp" id="btnSignUp">Sign Up!</button>
+                    <a href="#pageJoined"><button data-role="button" class="ui-btn-active" data-inline="true" name="btnSeeJoined">See Those who have Joined!</button></a>
+                </form>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy; Justin Harvey & Morgan Walker </h1>
+            </footer>
+        </div>
+        <!-- About Page-->
+        <div id="pageAbout" data-role="page">
+            <header data-role="header" data-theme="a" data-position="fixed">
+                <h1> Auto Bidders 2020 </h1>
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                        <li><a href="#pageBrowse"  data-icon="bars" data-theme="a" >Browse</a></li>
+                        <li><a href="#pageAuction" data-icon="tag" data-theme="a" >Auctions</a></li>
+                        <li><a href="#pageSignUp" data-icon="navigation" data-theme="a" >Sign Up</a></li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" class="ui-btn-active,                                   ui-state-persist">About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content" data-theme="a">
+                <h1 align="center">Auto Bidders was Created By:</h1>
+                <h3>Justin Harvey</h3>
+                <p>Feel free to contact by:</p>
+                <a href="#" data-role="button" data-icon="plus">Call: (519) 277-6652</a>
+                <a href="mailto:jharvey7599@conestogac.on.ca" data-role="button" data-icon="plus">jharvey7599@conestogac.on.ca</a>
+                <h3>Morgan Walker</h3>
+                <p>Feel free to contact by:</p>
+                <a href="#" data-role="button" data-icon="plus">Call: (226) 201-1640</a>
+                <a href="mailto:mwalker8510@conestogac.on.ca" data-role="button" data-icon="plus">mwalker8510@conestogac.on.ca</a>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy; Justin Harvey & Morgan Walker </h1>
+            </footer>
+        </div>
+        <!-- Joined Page-->
+        <div id="pageJoined" data-role="page">
+            <header data-role="header" data-theme="a" data-position="fixed">
+                <h1> Auto Bidders 2020 </h1>
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                        <li><a href="#pageBrowse"  data-icon="bars" data-theme="a"  >Browse</a></li>
+                        <li><a href="#pageAuction" data-icon="tag" data-theme="a" >Auctions</a></li>
+                        <li><a href="#pageSignUp" data-icon="navigation" data-theme="a" class="ui-btn-active,ui-state-persist">Sign Up</a></li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" >About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content" data-theme="a">
+                <ul id="results" data-role="listview" class="ui-listview-inset" data-split-icon="user">
+                </ul>
+                <a href="#pageSignUp"><button data-role="button" class="ui-btn-active" data-inline="true" name="btnSeeJoined">Go Back</button></a>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy; Justin Harvey & Morgan Walker </h1>
+            </footer>
+        </div>
+        <div id="pageBidders" data-role="page">
+            <header data-role="header" data-theme="a" data-position="fixed">
+                <h1> Auto Bidders 2020 </h1>
+                <div data-role="navbar" data-type="horizontal">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a"  >Home</a></li>
+                        <li><a href="#pageBrowse"  data-icon="bars" data-theme="a" class="ui-btn-active,                                   ui-state-persist" >Browse</a></li>
+                        <li><a href="#pageAuction" data-icon="tag" data-theme="a" >Auctions</a></li>
+                        <li><a href="#pageSignUp" data-icon="navigation" data-theme="a" >Sign Up</a></li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" >About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content" data-theme="a">
+                <h1>Place A Bid!</h1>
+
+                <div id="hiddenDiv1" hidden>
+                <input type="text" name="txtId" id="txtId" disabled>
+                </div>
+                <label for="txtBidModel">Model:</label>
+                <input type="text" name="txtBidModel" id="txtBidModel" disabled>
+                <label for="txtBidMake">Make:</label>
+                <input type="text" name="txtBidMake" id="txtBidMake" disabled>
+                <label for="txtBidYear">Year:</label>
+                <input type="text" name="txtBidYear" id="txtBidYear" disabled>
+                <label for="txtBidDamage">Damages:</label>
+                <textarea name="txtBidDamage" id="txtBidDamage" disabled>
+
+                </textarea>
+                <label for="txtStartingBid_Bid">StartingBid:</label>
+                <input type="text" id="txtStartingBid_Bid" name="txtStartingBid_Bid" disabled>
+                <h3>Location of Seller:</h3>
+                <div style="display: block; width: 95%; margin-bottom: 3px; height: 450px; background: grey;" id="bidMap">
+
+                </div>
+                <ul data-role="listview" id="bidList" class="ui-listview-inset">
+
+                </ul>
+                <form id="bidForm" name="bidForm">
+                <label for="txtPlaceBid">New Bid(Please Use Whole Dollars):</label>
+                <input type="number" name="txtPlaceBid" id="txtPlaceBid" placeholder="$">
+                <label for="txtBidderName">Name:</label>
+                <input type="text" name="txtBidderName" id="txtBidderName">
+                <label for="txtBidderEmail">Email:</label>
+                <input type="text" name="txtBidderEmail" id="txtBidderEmail">
+                <button data-role="button" class="ui-btn-active" data-inline="true" name="btnFinalBid" id="btnFinalBid">Place Bid</button>
+                </form>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy; Justin Harvey & Morgan Walker </h1>
+            </footer>
+        </div>
+    </body>
+</html>
